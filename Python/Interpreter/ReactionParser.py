@@ -119,10 +119,7 @@ class ReactionParser(object):
             
         
         return  time_indexes, indexes, data      
-        
-        
-        
-        
+    
         
                 
         
