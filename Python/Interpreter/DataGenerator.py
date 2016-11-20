@@ -151,5 +151,5 @@ class DataGenerator(object):
 		self._extract(input_filename)
 	
 if __name__ == '__main__':
-	filename = 'mixture.pdb'
+	filename = 'data/mixture.pdb'
 	DataGenerator(filename, 'out.data')
