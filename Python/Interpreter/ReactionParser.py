@@ -134,6 +134,25 @@ class ReactionParser(object):
         self._reaction_data = data
         
         
+    def ParseTimestep(self):
+        '''
+            Rescale the reaction data in order to provide the differences between 
+            timesteps. This is done subtracting the actual timestep from last, and
+            lost the first one.
+        '''
+        
+        rd = self.reaction_data
+        reshaped = numpy.delete(rd, 0, axis=0)
+        
+        total_lines = len(rd)
+        
+        for i in xrange(total_lines - 1):
+            reshaped[i] = reshaped[i] - rd[i]
+        
+        
+        return reshaped        
+        
+        
         
         
         
@@ -141,8 +160,8 @@ if __name__ == '__main__':
     filename = 'data/out_species.out'
     
     a = ReactionParser(filename)
+    a.ParseTimestep()
     
-    import pdb; pdb.set_trace()
     
                 
                 
